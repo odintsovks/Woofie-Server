@@ -18,7 +18,14 @@
         {
           "id": "",
           "sourceText": "",
-          "targetText": ""
+          "targetText": "",
+          "connections": [
+            {
+              "id": "",
+              "description": ""
+            },
+            // ...
+          ]
         },
         // ...
       ]
@@ -43,7 +50,14 @@
       {
         "id": "",
         "sourceText": "",
-        "targetText": ""
+        "targetText": "",
+        "connections": [
+          {
+            "id": "",
+            "description": ""
+          },
+          // ...
+        ]
       },
       // ...
     ]
@@ -59,7 +73,14 @@
   ```json
   {
     "sourceText": "",
-    "targetText": ""
+    "targetText": "",
+    "connections": [
+      {
+        "id": "",
+        "description": ""
+      },
+      // ...
+    ]
   }
   ```
   
@@ -69,7 +90,14 @@
     {
       "id": "",
       "sourceText": "",
-      "targetText": ""
+      "targetText": "",
+      "connections": [
+        {
+          "id": "",
+          "description": ""
+        },
+        // ...
+      ]
     }
     ```
 - Статус: `400 Bad Request`
@@ -84,7 +112,14 @@
     ```json
     {
       "sourceText": "",
-      "targetText": ""
+      "targetText": "",
+      "connections": [
+        {
+          "id": "",
+          "description": ""
+        },
+        // ...
+      ]
     }
     ```
 - Статус: `404 Not Found`
@@ -98,7 +133,14 @@
   ```json
   {
     "sourceText": "",
-    "targetText": ""
+    "targetText": "",
+    "connections": [
+      {
+        "id": "",
+        "description": ""
+      },
+      // ...
+    ]
   }
   ```
   
@@ -108,7 +150,14 @@
     {
       "id": "",
       "sourceText": "",
-      "targetText": ""
+      "targetText": "",
+      "connections": [
+        {
+          "id": "",
+          "description": ""
+        },
+        // ...
+      ]
     }
     ```
 
