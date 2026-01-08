@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,11 +33,11 @@ public class GlossaryService {
         return mapToDto(repository.save(entity));
     }
 
-    public GlossaryEntryDto getById(UUID id) {
+    public GlossaryEntryDto getById(Integer id) { // Изменено на Integer
         return repository.findById(id).map(this::mapToDto).orElse(null);
     }
 
-    public boolean delete(UUID id) {
+    public boolean delete(Integer id) { // Изменено на Integer
         if (!repository.existsById(id)) return false;
         repository.deleteById(id);
         return true;

@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GlossaryEntryDto {
+public class TranslationConnectionDto {
     private Integer id;
-    private String targetTerm;
-    private String sourceTerm;
-    private String definition;
+    private String description;
 }

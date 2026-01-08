@@ -1,0 +1,48 @@
+### 1. GET /api/translations (Запрос всех единиц)
+# Ожидаемый статус: 200 OK
+# Ожидаемое тело: { "timestamp": ..., "translations": [...] }
+GET http://localhost:8080/api/translations
+
+###
+
+### 2. POST /api/translations (Добавление единицы)
+# Ожидаемый статус: 201 Created
+POST http://localhost:8080/api/translations
+Content-Type: application/json
+
+{
+  "sourceText": "Hello world",
+  "targetText": "Привет мир",
+  "connections": [
+    { "description": "First connection" }
+  ]
+}
+
+###
+
+### 3. POST /api/translations (Ошибка 400 - отсутствует поле)
+# Ожидаемый статус: 400 Bad Request
+POST http://localhost:8080/api/translations
+Content-Type: application/json
+
+{
+  "targetText": "Only target"
+}
+
+###
+
+### 4. GET /api/translations/{id} (Запрос по ID)
+# Ожидаемый статус: 200 OK
+GET http://localhost:8080/api/translations/2
+
+###
+
+### 5. DELETE /api/translations/{id} (Удаление)
+# Ожидаемый статус: 204 No Content
+DELETE http://localhost:8080/api/translations/1
+
+###
+
+### 6. DELETE /api/translations/{id} (Ошибка 404 - уже удалено)
+# Ожидаемый статус: 404 Not Found
+DELETE http://localhost:8080/api/translations/1

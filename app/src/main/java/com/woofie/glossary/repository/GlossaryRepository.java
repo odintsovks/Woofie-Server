@@ -4,8 +4,7 @@ import com.woofie.glossary.model.GlossaryEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.time.Instant;
 import java.util.List;
-import java.util.UUID;
 
-public interface GlossaryRepository extends JpaRepository<GlossaryEntry, UUID> {
+public interface GlossaryRepository extends JpaRepository<GlossaryEntry, Integer> {
     List<GlossaryEntry> findByCreatedAtAfter(Instant timestamp);
 }

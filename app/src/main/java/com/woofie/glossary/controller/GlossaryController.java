@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -39,13 +38,13 @@ public class GlossaryController {
     }
 
     @GetMapping("/glossary/{id}")
-    public ResponseEntity<GlossaryEntryDto> getOne(@PathVariable UUID id) {
+    public ResponseEntity<GlossaryEntryDto> getOne(@PathVariable Integer id) { // Integer
         GlossaryEntryDto dto = service.getById(id);
         return dto != null ? ResponseEntity.ok(dto) : ResponseEntity.notFound().build();
     }
 
     @PutMapping("/glossary/{id}")
-    public ResponseEntity<GlossaryEntryDto> update(@PathVariable UUID id, @RequestBody GlossaryEntryDto dto) {
+    public ResponseEntity<GlossaryEntryDto> update(@PathVariable Integer id, @RequestBody GlossaryEntryDto dto) { // Integer
         if (dto.getSourceTerm() == null || dto.getTargetTerm() == null || dto.getDefinition() == null)
             return ResponseEntity.badRequest().build();
         dto.setId(id);
@@ -53,7 +52,7 @@ public class GlossaryController {
     }
 
     @DeleteMapping("/glossary/{id}")
-    public ResponseEntity<Void> delete(@PathVariable UUID id) {
+    public ResponseEntity<Void> delete(@PathVariable Integer id) { // Integer
         return service.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }
