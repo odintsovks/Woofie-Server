@@ -1,6 +1,17 @@
 services:
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    network_mode: host
+    environment:
+      POSTGRES_PASSWORD: nik123
+      POSTGRES_DB: woofie_db
   server:
     build:
       context: .
     ports:
       - 8080:8080
+    network_mode: host
