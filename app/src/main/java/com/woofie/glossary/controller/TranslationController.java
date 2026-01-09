@@ -36,14 +36,14 @@ public class TranslationController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(dto));
     }
 
-    // POST /api/translations-fetch-updates - запрос обновлений по времени
-    @PostMapping("-fetch-updates")
+    // POST /api/translations/fetch - запрос обновлений по времени
+    @PostMapping("/fetch")
     public ResponseEntity<?> fetch(@RequestBody Map<String, Long> body) {
         if (!body.containsKey("timestamp")) {
             return ResponseEntity.badRequest().build(); // 400 Bad Request
         }
         // Здесь можно добавить фильтрацию по времени в сервисе
-        return ResponseEntity.ok(service.getAll());
+        return ResponseEntity.ok(service.getUpdates(body.get("timestamp")));
     }
 
     // GET /api/translations/{id} - запросить по индексу

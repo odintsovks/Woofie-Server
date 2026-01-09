@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,13 +30,13 @@ public class TranslationService {
     }
 
     // 3. Для POST /translations-fetch-updates
-    public List<TranslationDto> getUpdates(Long timestamp) {
+    public Map<String, Object> getUpdates(Long timestamp) {
         // Предполагается, что в репозитории есть метод findByUpdatedAtAfter
         // Если поле в модели Long, используем простое сравнение
-        return repository.findAll().stream()
+        return Map.of("timestamp", Instant.now().getEpochSecond(), "translations", repository.findAll().stream()
                 .filter(t -> t.getUpdatedAt() > timestamp)
                 .map(this::mapToDto)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
     // 4. Для POST и PUT /translations
