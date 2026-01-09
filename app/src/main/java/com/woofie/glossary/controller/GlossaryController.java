@@ -24,7 +24,7 @@ public class GlossaryController {
         return ResponseEntity.ok(res);
     }
 
-    @PostMapping("/translations-fetch-updates")
+    @PostMapping("/glossary-fetch-updates")
     public ResponseEntity<?> fetch(@RequestBody Map<String, Long> body) {
         if (!body.containsKey("timestamp")) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(service.getUpdates(body.get("timestamp")));
