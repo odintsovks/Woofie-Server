@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.2.5" // Рекомендуемая стабильная версия
     id("io.spring.dependency-management") version "1.1.4"
+    id("io.gatling.gradle") version "3.14.9.5"
 }
 
 group = "com.woofie"
@@ -20,6 +21,7 @@ configurations {
 }
 
 repositories {
+    gradlePluginPortal()
     mavenCentral()
 }
 
