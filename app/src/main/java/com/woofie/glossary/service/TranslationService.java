@@ -52,6 +52,8 @@ public class TranslationService {
 
         entity.setSourceText(dto.getSourceText());
         entity.setTargetText(dto.getTargetText());
+        entity.setXPosition(dto.getXPosition());
+        entity.setYPosition(dto.getYPosition());
 
         // Обновляем метку времени при каждом сохранении
         entity.setUpdatedAt(Instant.now().getEpochSecond());
@@ -85,6 +87,6 @@ public class TranslationService {
         List<TranslationConnectionDto> conns = t.getConnections().stream()
                 .map(c -> new TranslationConnectionDto(c.getId(), c.getDescription()))
                 .collect(Collectors.toList());
-        return new TranslationDto(t.getId(), t.getSourceText(), t.getTargetText(), conns);
+        return new TranslationDto(t.getId(), t.getSourceText(), t.getTargetText(), t.getXPosition(), t.getYPosition(), conns);
     }
 }

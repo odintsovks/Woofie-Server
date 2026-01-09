@@ -20,6 +20,12 @@ public class Translation {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String targetText;
 
+    @Column(nullable = false, columnDefinition = "INT")
+    private Integer xPosition;
+
+    @Column(nullable = false, columnDefinition = "INT")
+    private Integer yPosition;
+
     private Long updatedAt = Instant.now().toEpochMilli();
 
     // Связь: один перевод может иметь много доп. описаний (connections)

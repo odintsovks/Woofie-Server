@@ -30,7 +30,7 @@ public class TranslationController {
     // POST /api/translations - добавить единицу перевода (201 Created)
     @PostMapping
     public ResponseEntity<TranslationDto> create(@RequestBody TranslationDto dto) {
-        if (dto.getSourceText() == null || dto.getTargetText() == null) {
+        if (dto.getSourceText() == null || dto.getTargetText() == null || dto.getXPosition() == null || dto.getYPosition() == null) {
             return ResponseEntity.badRequest().build(); // 400 Bad Request
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(dto));
@@ -56,7 +56,7 @@ public class TranslationController {
     // PUT /api/translations/{id} - обновить или добавить
     @PutMapping("/{id}")
     public ResponseEntity<TranslationDto> update(@PathVariable Integer id, @RequestBody TranslationDto dto) {
-        if (dto.getSourceText() == null || dto.getTargetText() == null) {
+        if (dto.getSourceText() == null || dto.getTargetText() == null || dto.getXPosition() == null || dto.getYPosition() == null) {
             return ResponseEntity.badRequest().build();
         }
         dto.setId(id);

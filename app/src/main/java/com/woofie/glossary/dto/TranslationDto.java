@@ -12,5 +12,7 @@ public class TranslationDto {
     private Integer id;
     private String sourceText;
     private String targetText;
+    private Integer xPosition;
+    private Integer yPosition;
     private List<TranslationConnectionDto> connections;
 }
